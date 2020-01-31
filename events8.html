@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dom Play</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style>
+        div#clickSpans span {
+            background-color: aquamarine;
+        }
+
+        div#clickSpans p {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        #clickSpans {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="margin-left: 450px;">Events 8</h1>
+    
+    <div id="clickSpans">
+        <p>Hamlet: <span data-actor="hamlet">To be or not to be.</span></p>
+        <p>Skull:<span data-actor="skull"> Don't ask me, Im only a skull!</span></p>
+        <p>Hamlet:<span data-actor="hamlet"> What did you say?</span></p>
+        <p>Skull:<span data-actor="skull"> Nothing I'm a figment of your imagination</span></p>
+        <p>Ohphilea:<span data-actor="ophielia"> Nothing I'm a figment of your imagination</span></p>
+        <p>Hamlet:<span data-actor="hamlet"> Oh good, I thought I was going crazy.</span></p>
+    </div>
+
+</body>
+<script>
+    const spans = document.querySelectorAll('div#clickSpans span');
+    
+    for(const mySpan of spans){
+        mySpan.addEventListener('click', function(e){
+            let myActor = mySpan.dataset.actor;
+            highlight(myActor);
+        });
+    }
+    function highlight(myActor){
+          for(const mySpan of spans){
+              if(mySpan.dataset.actor== myActor){
+                  mySpan.style.backgroundColor='aquamarine';
+                  mySpan.style.fontWeight = 'bold';
+              }
+              else {
+                  mySpan.style.backgroundColor='white';
+                  mySpan.style.fontWeight = 'normal';
+              }
+          }
+        
+        if(el.style.backgroundColor=='yellow'){
+             el.style.backgroundColor='white';
+             mySpan.style.fontWeight = 'bold';
+           }else{
+             el.style.backgroundColor='yellow';
+             mySpan.style.fontWeight = 'normal';
+           }   
+    }
+</script>
+
+</html>
